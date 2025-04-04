@@ -1,0 +1,48 @@
+{
+    "name": "legalityframe/legalityframe",
+    "description": "Sistema de automatización de cumplimiento legal para sitios web",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "LegalityFrame",
+            "email": "info@legalityframe.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.4",
+        "vlucas/phpdotenv": "^5.4",
+        "phpmailer/phpmailer": "^6.6",
+        "setasign/fpdf": "^1.8",
+        "stripe/stripe-php": "^10.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.5",
+        "squizlabs/php_codesniffer": "^3.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Helpers/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "phpstan": "phpstan analyse app",
+        "cs": "phpcs --standard=PSR12 app",
+        "post-create-project-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+} 
